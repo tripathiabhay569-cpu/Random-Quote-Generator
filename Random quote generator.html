@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Quote Generator</title>
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1.0">
+    <style>
+      body{
+        text-align: center;
+        height: 100%;
+        padding: 8px;
+      }
+      button{
+        background-color: orange;
+        color: white;
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s,transform 0.5s,box-shadow 0.3s;
+      }
+      button:hover{
+        background-color: red;
+        transform: scale(1.1);
+        box-shadow: 0 2px 2px 2px yellow;
+      }
+      #container{
+        width: 100%;
+        background-color: #f1f1f1;
+        border:none;
+        border-radius: 10px;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      @media(max-width:600px){
+        #container{
+          width: 100%;
+          height: 100%;
+        }
+        h1{
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Random Quote Generator</h1>
+    <h2 id="head"></h2>
+    <button id="Generate">Generate</button>
+    </div>
+    <script>
+      let h = document.getElementById("head")
+      let btn = document.getElementById("Generate")
+      let quote = ["ऋण, शत्रु  और रोग को समाप्त कर देना चाहिए।- चाणक्य",
+      "वन की अग्नि चन्दन की लकड़ी को भी जला देती है अर्थात दुष्ट व्यक्ति किसी का भी अहित कर सकते है।- चाणक्य","शत्रु की दुर्बलता जानने तक उसे अपना मित्र बनाए रखें।- चाणक्य", 
+      " सिंह भूखा होने पर भी तिनका नहीं खाता।  - चाणक्य" ,
+      "एक ही देश के दो शत्रु परस्पर मित्र होते है। - चाणक्य"]
+      btn.addEventListener("click",function(){
+        let t = Math.floor(Math.random() * quote.length)
+        h.textContent = quote[t]
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random()* 256)
+        let rgb = `rgb(${r},${g},${b})`
+        h.style.color = rgb
+      })
+    </script>
+  </body>
+</html>
